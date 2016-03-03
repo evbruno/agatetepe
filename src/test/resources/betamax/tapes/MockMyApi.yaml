@@ -1,0 +1,122 @@
+!tape
+name: MockMyApi
+interactions:
+- recorded: 2016-03-04T19:23:56.548Z
+  request:
+    method: GET
+    uri: http://jsonplaceholder.typicode.com/posts/1
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Host: jsonplaceholder.typicode.com
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.7.0_79
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Cache-Control: no-cache
+      Content-Type: application/json; charset=utf-8
+      Date: Fri, 04 Mar 2016 19:23:56 GMT
+      Etag: W/"124-yv65LoT2uMHrpn06wNpAcQ"
+      Expires: '-1'
+      Pragma: no-cache
+      Server: Cowboy
+      Vary: Origin
+      X-Betamax: PLAY
+      X-Content-Type-Options: nosniff
+      X-Powered-By: Express
+    body: |-
+      {
+        "userId": 1,
+        "id": 1,
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+      }
+- recorded: 2016-03-04T19:34:20.183Z
+  request:
+    method: DELETE
+    uri: http://jsonplaceholder.typicode.com/posts/1
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Host: jsonplaceholder.typicode.com
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.7.0_79
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Cache-Control: no-cache
+      Content-Type: application/json; charset=utf-8
+      Date: Fri, 04 Mar 2016 19:34:19 GMT
+      Etag: W/"2-mZFLkyvTelC5g8XnyQrpOw"
+      Expires: '-1'
+      Pragma: no-cache
+      Server: Cowboy
+      Vary: Origin
+      X-Content-Type-Options: nosniff
+      X-Powered-By: Express
+    body: '{}'
+- recorded: 2016-03-04T19:40:37.621Z
+  request:
+    method: POST
+    uri: http://jsonplaceholder.typicode.com/posts
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '54'
+      Content-Type: application/x-www-form-urlencoded
+      Host: jsonplaceholder.typicode.com
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.7.0_79
+    body: |-
+      {
+          title: 'foo',
+          body: 'bar',
+          userId: 1
+        }
+  response:
+    status: 201
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Cache-Control: no-cache
+      Content-Type: application/json; charset=utf-8
+      Date: Fri, 04 Mar 2016 19:40:37 GMT
+      Etag: W/"53-p6NLNQB5cit80rB1QBVY6g"
+      Expires: '-1'
+      Pragma: no-cache
+      Server: Cowboy
+      Vary: Origin, X-HTTP-Method-Override
+      X-Content-Type-Options: nosniff
+      X-Powered-By: Express
+    body: |-
+      {
+        "{\n    title: 'foo',\n    body: 'bar',\n    userId: 1\n  }": "",
+        "id": 101
+      }
+- recorded: 2016-03-04T21:03:27.553Z
+  request:
+    method: POST
+    uri: http://localhost:8079/api/rest
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '325'
+      Content-Type: application/json
+      Host: localhost:8079
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.7.0_79
+    body: |-
+      {
+          "@class": "etc.bruno.MyApi",
+          "token": null
+      }
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+      Date: Fri, 04 Mar 2016 21:03:27 GMT
+      Server: Winstone Servlet Engine v0.9.10
+      X-Powered-By: Servlet/2.5 (Winstone/0.9.10)
+    body: "{\"token\": \"/kx/R1WXXTesq/NzXxQpcKwr5ZFCv9xySa0RgO7lgv5yeRipapcJq2hB+Kou8bv+6nFMVhlfx1M\"}"
