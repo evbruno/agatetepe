@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/evbruno/agatetepe.svg?branch=master)](https://travis-ci.org/evbruno/agatetepe)
+[![codecov.io](https://codecov.io/github/evbruno/agatetepe/coverage.svg?branch=master)](https://codecov.io/github/evbruno/agatetepe?branch=master)
 
 # Aga-te-te-pe
 
