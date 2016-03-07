@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/evbruno/agatetepe.svg?branch=master)](https://travis-ci.org/evbruno/agatetepe)
+
 # Aga-te-te-pe
 
 _(portuguese pronunciation for HTTP)_
