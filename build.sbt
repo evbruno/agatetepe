@@ -18,3 +18,7 @@ libraryDependencies ++= Seq(
 )
 
 parallelExecution in Test := false
+
+coverageExcludedPackages := "HelloWorld.*"
+
+resolvers += Resolver.url("scoverage-bintray", url("https://dl.bintray.com/sksamuel/sbt-plugins/"))(Resolver.ivyStylePatterns)
