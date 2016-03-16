@@ -1,8 +1,20 @@
 import java.io.File
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
 
 import agatetepe.Entity._
 
 package object agatetepe {
+
+	implicit class RichBody(val body: Option[Body]) {
+
+		def asString : String = asString(UTF_8)
+
+		def asString(charset: Charset): String = body match {
+			case None => ""
+			case Some(x) => new String(x, charset.name)
+		}
+	}
 
 	object Helpers {
 

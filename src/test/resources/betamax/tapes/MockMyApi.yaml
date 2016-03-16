@@ -119,4 +119,23 @@ interactions:
       Date: Fri, 04 Mar 2016 21:03:27 GMT
       Server: Winstone Servlet Engine v0.9.10
       X-Powered-By: Servlet/2.5 (Winstone/0.9.10)
-    body: "{\"token\": \"/kx/R1WXXTesq/NzXxQpcKwr5ZFCv9xySa0RgO7lgv5yeRipapcJq2hB+Kou8bv+6nFMVhlfx1M\"}"
+    body: '{"token": "/kx/R1WXXTesq/NzXxQpcKwr5ZFCv9xySa0RgO7lgv5yeRipapcJq2hB+Kou8bv+6nFMVhlfx1M"}'
+- recorded: 2016-03-16T20:27:09.224Z
+  request:
+    method: GET
+    uri: http://localhost:8000/file.tar.gz
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Host: localhost:8000
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.7.0_79
+  response:
+    status: 200
+    headers:
+      Content-type: application/octet-stream
+      Date: Wed, 16 Mar 2016 20:27:09 GMT
+      Last-Modified: Wed, 16 Mar 2016 20:22:52 GMT
+      Server: SimpleHTTP/0.6 Python/2.7.10
+    body: !!binary |-
+      H4sIAJzA6VYAA+3T3UrcQBQH8FmhWBdKvbKXHi8EF2o6+dhdba90W1spUqoBeyfT5ETD5mOZTFZ9AB/E9+kb9GU6+0Fd9sJ6s1rh/4PDmZmcCTMhx3nnnCVpxo65MmJBpJSdIKBR7nba4yy9yXys7bnkep2u5wfSDXySri99X5Bc1IFm1ZVR2h4lri/urbNlSXLP88lV6G9+Ll6sLYslIY5URN9O6AdNjdbEig1PiMa6zXbe+P6wV+6F4fFkNN7xy8bNXMnSdP21EG+iMnfUYGD/wZCvzKciKuO0OJ/U/bYxFGLzriZno2Jl1Pv+0cdDw/npBWs+0GVeidok2zsfXD/w3O7uTvBzkKWVkfK2cbb6uRfu79E2be3ruogzbtFXlXFUsaat/nTUcl4dc8TpkGMapopO+tcDpgPbHBRqVVQJa+dlc3qxxsxFZoUP//L/hUX3/si/+l+2u3P97wWdNvr/MXzhLCvptNRZvNFs9sriXCtTvaWivKTrsqZIFRRzxoYpZ6f51McFAAAAAAAAAAAAAAAAAAAAgDl/ANwQdrEAKAAA
