@@ -8,11 +8,12 @@ scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Xlint"
 scalacOptions in Test ++= Seq("-Yrangepos")
 
 libraryDependencies ++= Seq(
-	"ch.qos.logback" 		    % "logback-classic" % "1.1.5",
-	"com.github.nikita-volkov"	% "sext" 			% "0.2.4" % "test",
-	"org.scalatest"   			%% "scalatest" 		% "2.2.6" % "test",
-	"co.freeside" 				% "betamax" 		% "1.1.2" % "test",
-	"org.codehaus.groovy" 		% "groovy-all" 		% "1.8.8" % "test"
+	"ch.qos.logback"            % "logback-classic" % "1.1.5",
+
+	"com.github.nikita-volkov"  % "sext"            % "0.2.4" % "test",
+	"org.scalatest"             %% "scalatest"      % "2.2.6" % "test",
+	"co.freeside"               % "betamax"         % "1.1.2" % "test",
+	"org.codehaus.groovy"       % "groovy-all"      % "1.8.8" % "test"
 )
 
 parallelExecution in Test := false
@@ -22,6 +23,8 @@ coverageExcludedPackages := ".*HelloWorld.*"
 resolvers += Resolver.url("scoverage-bintray", url("https://dl.bintray.com/sksamuel/sbt-plugins/"))(Resolver.ivyStylePatterns)
 
 // deploy config stuff
+
+useGpg := true
 
 publishMavenStyle := true
 

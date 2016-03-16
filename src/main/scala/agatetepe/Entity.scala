@@ -10,13 +10,13 @@ object Entity {
 	type StatusCode = Int
 	type Header = (String, String)
 	type Headers = Set[Header]
-	type Body = String
+	type Body = Array[Byte]
 
 	// Request
 
 	final case class Request(url: String,
 							 method: Method = GET,
-							 body: Option[Body] = None,
+							 body: Option[String] = None,
 							 headers: Headers = Set.empty) {
 
 		require(new URL(url).getProtocol != null, "Must be a valid URL")
@@ -50,7 +50,6 @@ object Entity {
 	// Response
 
 	sealed case class Response(statusCode: StatusCode,
-							   statusLine: String,
 							   body: Option[Body] = None,
 							   headers: Headers = Set.empty)
 

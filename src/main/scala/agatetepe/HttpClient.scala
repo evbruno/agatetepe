@@ -1,7 +1,7 @@
 package agatetepe
 
 import java.io.{BufferedReader, IOException, InputStream, InputStreamReader}
-import java.net.{HttpURLConnection, URL}
+import java.net._
 import java.nio.charset.StandardCharsets
 
 import agatetepe.Entity._
@@ -26,6 +26,7 @@ class HttpClient {
 
 		logger.debug("Opening connection on {}", req.url)
 
+		CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL))
 		val conn = new URL(req.url).openConnection().asInstanceOf[HttpURLConnection]
 
 		conn.setRequestMethod(req.method.toString)
@@ -43,7 +44,7 @@ class HttpClient {
 
 		val inputStream = findInputStream(conn)
 
-		val resp = nonEmptyResponse(conn, extractBody(conn, charset, inputStream))
+		val resp = transformResponse(conn, extractBody(inputStream))
 
 		conn.disconnect
 
@@ -66,15 +67,14 @@ class HttpClient {
 
 	}
 
-	private def nonEmptyResponse(conn: HttpURLConnection, responseBody: Body) = {
+	private def transformResponse(conn: HttpURLConnection, responseBody: Body) = {
 		val statusCode = conn.getResponseCode
-		val (statusLine, responseHeaders) = extractHeaders(conn)
+		val responseHeaders = extractHeaders(conn)
 
 		conn.disconnect
 
 		Response(
 			statusCode = statusCode,
-			statusLine = statusLine,
 			body = Option(responseBody),
 			headers = responseHeaders
 		)
@@ -88,27 +88,16 @@ class HttpClient {
 		}
 	}
 
-	private def extractBody(connection: HttpURLConnection, charset: String, source: InputStream): String = {
-		val reader = new BufferedReader(new InputStreamReader(source, charset))
-		val str = Stream.continually(reader.readLine).takeWhile(_ != null).mkString("\n")
-		source.close
-		str
-	}
+	private def extractBody(source: InputStream): Body =
+		Stream.continually(source.read).takeWhile(_ != -1).toArray.map(_.toByte)
 
-	private def extractHeaders(conn: HttpURLConnection): (String, Headers) = {
+	private def extractHeaders(conn: HttpURLConnection):  Headers = {
 		import scala.collection.JavaConverters._
 		val headers = conn.getHeaderFields.asScala
 
-		val statusLine = headers.find(_._1 == null) match {
-			case Some((_, values)) => values.asScala.mkString(";")
-			case x => "empty"
-		}
-
-		val ret = headers.filter(_._1 != null).map { in =>
+		headers.filter(_._1 != null).map { in =>
 			(in._1, in._2.asScala.mkString(";"))
-		}
-
-		(statusLine, ret.toSet)
+		}.toSet
 	}
 
 }
