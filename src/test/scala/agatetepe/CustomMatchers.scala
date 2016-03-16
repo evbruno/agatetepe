@@ -1,8 +1,9 @@
 package agatetepe
 
 import java.io.File
+import java.nio.file.{Files, Paths}
 
-import org.scalatest.matchers.{Matcher, MatchResult}
+import org.scalatest.matchers.{MatchResult, Matcher}
 
 trait CustomMatchers {
 
@@ -67,14 +68,8 @@ trait CustomMatchers {
 
 	// Helpers
 
-	def loadContent(fileName: File): Array[Byte] = {
-		println(">>>>>>>> " + fileName)
-		val source = scala.io.Source.fromFile(fileName, "UTF8")
-		println(">>>>>>>> " + source)
-		val byteArray = source.map(_.toByte).toArray
-		source.close
-		byteArray
-	}
+	def loadContent(fileName: File): Array[Byte] =
+		Files.readAllBytes(Paths.get(fileName.toURI))
 
 	def md5sum(source: Array[Byte]) =
 		java.security.MessageDigest.getInstance("MD5").digest(source).map(0xFF & _).map("%02x".format(_)).foldLeft(""){_ + _}
