@@ -24,6 +24,10 @@ resolvers += Resolver.url("scoverage-bintray", url("https://dl.bintray.com/sksam
 
 // deploy config stuff
 
+// sbt publishSigned
+// sbt sonatypeRelease
+// crossScalaVersions := Seq("2.10.0")
+
 useGpg := true
 
 publishMavenStyle := true
