@@ -139,3 +139,26 @@ interactions:
       Server: SimpleHTTP/0.6 Python/2.7.10
     body: !!binary |-
       H4sIAJzA6VYAA+3T3UrcQBQH8FmhWBdKvbKXHi8EF2o6+dhdba90W1spUqoBeyfT5ETD5mOZTFZ9AB/E9+kb9GU6+0Fd9sJ6s1rh/4PDmZmcCTMhx3nnnCVpxo65MmJBpJSdIKBR7nba4yy9yXys7bnkep2u5wfSDXySri99X5Bc1IFm1ZVR2h4lri/urbNlSXLP88lV6G9+Ll6sLYslIY5URN9O6AdNjdbEig1PiMa6zXbe+P6wV+6F4fFkNN7xy8bNXMnSdP21EG+iMnfUYGD/wZCvzKciKuO0OJ/U/bYxFGLzriZno2Jl1Pv+0cdDw/npBWs+0GVeidok2zsfXD/w3O7uTvBzkKWVkfK2cbb6uRfu79E2be3ruogzbtFXlXFUsaat/nTUcl4dc8TpkGMapopO+tcDpgPbHBRqVVQJa+dlc3qxxsxFZoUP//L/hUX3/si/+l+2u3P97wWdNvr/MXzhLCvptNRZvNFs9sriXCtTvaWivKTrsqZIFRRzxoYpZ6f51McFAAAAAAAAAAAAAAAAAAAAgDl/ANwQdrEAKAAA
+- recorded: 2016-03-31T16:46:55.541Z
+  request:
+    method: POST
+    uri: http://api.domain.com/email
+    headers:
+      Accept: application/json
+      Accept-Charset: UTF-8
+      Connection: keep-alive
+      Content-Length: '141'
+      Content-Type: application/json
+      Host: api.postmarkapp.com
+      User-Agent: Java/1.7.0_79
+      X-Postmark-Server-Token: 8cf24496-60cc-4c38-ba38-ca2aa85dd0a8_
+    body: '{From: ''from@domain.com'', To: ''target@domain.com'', Subject: ''Hello from Bot'', HtmlBody: ''<strong>Hello</strong>''}'
+  response:
+    status: 401
+    headers:
+      Cache-Control: private
+      Content-Type: application/json; charset=utf-8
+      Date: Thu, 31 Mar 2016 16:46:55 GMT
+      Server: unicorns-double-rainbow
+      X-Powered-By: ASP.NET
+    body: '{"ErrorCode":10,"Message":"The Server Token you provided in the X-Server-Token request header was invalid. Please verify that you are using a valid token."}'

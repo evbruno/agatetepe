@@ -40,7 +40,7 @@ class RequestSpec extends FlatSpec with Matchers {
 
 		request.url should equal("http://127.0.0.1/")
 		request.method should equal(POST)
-		request.headers should equal(Set(("Content-Type", "application/json")))
+		request.headers should equal(Set(("Content-Type", "application/json"), ("Accept", "application/json")))
 		request.body shouldBe Some("{\"foo\":\"bar\"}")
 	}
 

@@ -54,7 +54,7 @@ class HttpClient {
 	private def writeBody(conn: HttpURLConnection, payload: Array[Byte]): Unit = {
 		conn.setDoInput(true)
 		conn.setRequestProperty("Content-Length", payload.length.toString)
-		conn.setFixedLengthStreamingMode(payload.length)
+		// conn.setFixedLengthStreamingMode(payload.length)
 
 		val out = conn.getOutputStream
 
@@ -84,14 +84,15 @@ class HttpClient {
 		try {
 			conn.getInputStream
 		} catch {
-			case _: IOException => conn.getErrorStream
+			case x: IOException => conn.getErrorStream
 		}
 	}
 
 	private def extractBody(source: InputStream): Body =
-		Stream.continually(source.read).takeWhile(_ != -1).toArray.map(_.toByte)
+	if (source == null) Array()
+	else Stream.continually(source.read).takeWhile(_ != -1).toArray.map(_.toByte)
 
-	private def extractHeaders(conn: HttpURLConnection):  Headers = {
+	private def extractHeaders(conn: HttpURLConnection): Headers = {
 		import scala.collection.JavaConverters._
 		val headers = conn.getHeaderFields.asScala
 

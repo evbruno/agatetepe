@@ -29,7 +29,10 @@ object Entity {
 
 		def json(jsonBody: String) = copy(
 											body = Some(jsonBody),
-											headers = headers + Tuple2("Content-Type", "application/json"))
+											headers = headers
+														+ Tuple2("Content-Type", "application/json")
+														+ Tuple2("Accept", "application/json")
+										)
 
 	}
 

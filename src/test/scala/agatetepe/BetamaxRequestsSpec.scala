@@ -101,13 +101,22 @@ class BetamaxRequestsSpec extends FlatSpec
 		val req = Request get "http://localhost:8000/file.tar.gz"
 		val future = subject.asyncProcess(req).map(downloadToTempFile)
 		val (downloaded, bytes) = future.futureValue
-		println("FILE======" + downloaded)
 
 		bytes should equal(420)
 
 		downloaded should be a 'file
 		downloaded should haveSize(420)
 		downloaded should (exists and endWithExtension(".tmp") and haveMD5("cb4fa2865ac06155841442ea4084564b"))
+	}
+
+	"Client" should "get status code 401 with error message" in {
+		val jsonBody: String = "{From: 'from@domain.com', To: 'target@domain.com', Subject: 'Hello from Bot', HtmlBody: '<strong>Hello</strong>'}"
+		val req = Request.post("http://api.domain.com/email").json(jsonBody)
+		val future = subject.asyncProcess(req)
+		val result = future.futureValue
+
+		result.statusCode should equal(401)
+		result.body.asString should be ("""{"ErrorCode":10,"Message":"The Server Token you provided in the X-Server-Token request header was invalid. Please verify that you are using a valid token."}""")
 	}
 
 }
