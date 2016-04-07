@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/evbruno/agatetepe.svg?branch=master)](https://travis-ci.org/evbruno/agatetepe)
 [![codecov.io](https://codecov.io/github/evbruno/agatetepe/coverage.svg?branch=master)](https://codecov.io/github/evbruno/agatetepe?branch=master)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.evbruno/agatetepe_2.11.svg?style=plastic)](http://search.maven.org/#search%7Cga%7C1%7Cagatetepe)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.evbruno/agatetepe_2.11.svg)](http://search.maven.org/#search%7Cga%7C1%7Cagatetepe)
 
 # Aga-te-te-pe
 
