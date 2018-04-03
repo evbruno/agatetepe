@@ -1,6 +1,6 @@
 name            := "agatetepe"
 organization    := "com.github.evbruno"
-scalaVersion    := "2.11.7"
+scalaVersion    := "2.12.2"
 
 scalacOptions   := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-Xlint", "-feature")
 
@@ -10,8 +10,8 @@ libraryDependencies ++= Seq(
   "ch.qos.logback"              % "logback-classic" % "1.1.5",
 
   "com.github.nikita-volkov"    % "sext"            % "0.2.4" % "test",
-  "org.scalatest"               %% "scalatest"      % "2.2.6" % "test",
-  "co.freeside"                 % "betamax"         % "1.1.2" % "test",
+  "org.scalatest"               %% "scalatest"      % "3.0.1" % "test",
+  //"co.freeside"                 % "betamax"         % "1.1.2" % "test",
   "org.codehaus.groovy"         % "groovy-all"      % "1.8.8" % "test"
 )
 
@@ -29,6 +29,8 @@ resolvers += Resolver.url("scoverage-bintray", url("https://dl.bintray.com/sksam
 // crossScalaVersions := Seq("2.10.0")
 
 useGpg := true
+
+//gpg --allow-secret-key-import --import my.public.gpg-key
 
 publishMavenStyle := true
 
